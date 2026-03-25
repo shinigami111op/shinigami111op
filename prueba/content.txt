@@ -1,0 +1,22 @@
+TEXTOS VENTAJAS:
+
+Disfrute de las ventajas de reservar en la web
+
+Aparcamiento gratuito
+Piscina
+Alquiler de bicicletas
+Wifi en todo el establecimiento prepago
+
+
+ICONOS VENTAJAS:
+
+Contents:
+
+Parking:    \ea45
+Piscina:    \ea34
+Bicicleta:  \e93b
+Wifi:       \e9e6
+
+IMAGENES:
+
+Usar cualquiera del siguiente banco (da igual cual): https://pixabay.com/es/

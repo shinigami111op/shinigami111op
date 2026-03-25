@@ -1,0 +1,406 @@
+/* ===================================================== */
+/* =============== 1. RESET / GLOBAL ==================== */
+/* ===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 95%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ===================================================== */
+/* ===================== 2. HERO ======================== */
+/* ===================================================== */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    background: url('https://cdn.pixabay.com/photo/2019/05/28/00/15/indoors-4234072_1280.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.hero h1 {
+    font-weight: 300;
+    font-size: 40px;
+}
+
+/* Flechas scroll */
+.scroll-down {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.scroll-down span {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-bottom: 4px solid white;
+    border-right: 4px solid white;
+    transform: rotate(45deg);
+    margin: -10px auto;
+    animation: scroll 2s infinite;
+}
+
+.scroll-down span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+@keyframes scroll {
+    0% {
+        opacity: 0;
+        transform: rotate(45deg) translate(-5px, -5px);
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+}
+
+/* ===================================================== */
+/* ===================== 3. INFO ======================== */
+/* ===================================================== */
+
+.info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+.info-img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background-size: cover;
+    background-position: center;
+    background: url('https://cdn.pixabay.com/photo/2019/08/19/13/58/bed-4416515_1280.jpg') center/cover;
+}
+
+@media (min-width: 1025px) {
+    .info-img {
+        height: 100%;
+        aspect-ratio: auto;
+    }
+}
+
+.info-text {
+    max-width: 400px;
+}
+
+.info-text span {
+    font-size: 12px;
+    color: gray;
+    letter-spacing: 2px;
+}
+
+.info-text h2 {
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.info-text p {
+    margin-top: 15px;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Botón + popup */
+.btn-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+#openPopup {
+    margin-top: 25px;
+    padding: 12px 28px;
+    border: 1px solid black;
+    border-radius: 30px;
+    background: transparent;
+    font-size: 13px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#openPopup:hover {
+    background: black;
+    color: white;
+}
+
+/* Popup */
+.popup {
+    position: absolute;
+    bottom: 90%;
+    left: 0;
+    background: white;
+    border: 3px solid black;
+    padding: 20px;
+    width: 400px;
+    max-width: 90vw;
+    display: none;
+    z-index: 10;
+}
+
+/* Triángulo */
+.popup::after {
+    content: "";
+    position: absolute;
+    bottom: -13.9px;
+    left: 40px;
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-left: 3px solid black;
+    border-bottom: 3px solid black;
+    transform: rotate(-45deg);
+}
+
+/* Cerrar */
+#closePopup {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    color: black;
+}
+
+/* ===================================================== */
+/* =================== 4. VENTAJAS ====================== */
+/* ===================================================== */
+
+@font-face {
+    font-family: 'IconosMirai';
+    src: url('font/mirai-icofonts.eot');
+    src: url('font/mirai-icofonts.woff') format('woff'),
+        url('font/mirai-icofonts.ttf') format('truetype');
+}
+
+.ventajas {
+    width: 100%;
+    background: black;
+    color: white;
+    text-align: center;
+    padding: 60px 0;
+}
+
+.ventajas .container {
+    max-width: 1200px;
+}
+
+.ventajas h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.linea-titulo {
+    width: 300px;
+    height: 3px;
+    background: white;
+    margin: 20px auto 40px;
+}
+
+.ventajas-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.ventaja {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.icono {
+    font-family: 'IconosMirai';
+    font-size: 40px;
+}
+
+.icono-parking::before {
+    content: "\ea45";
+}
+
+.icono-piscina::before {
+    content: "\ea34";
+}
+
+.icono-bicicleta::before {
+    content: "\e93b";
+}
+
+.icono-wifi::before {
+    content: "\e9e6";
+}
+
+/* ===================================================== */
+/* ==================== 5. GALLERY ====================== */
+/* ===================================================== */
+
+.gallery {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 10px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 300px);
+    gap: 20px;
+}
+
+.box {
+    display: flex;
+    align-items: flex-end;
+    padding: 10px;
+    color: white;
+    font-size: 14px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Layout */
+.box1 {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    background-image: url('https://cdn.pixabay.com/photo/2017/01/20/00/30/maldives-1993704_1280.jpg');
+}
+
+.box2 {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    background-image: url('https://cdn.pixabay.com/photo/2016/08/11/02/23/massage-therapy-1584711_1280.jpg');
+}
+
+.box3 {
+    grid-column: 3;
+    grid-row: 1 / 3;
+    background-image: url('https://cdn.pixabay.com/photo/2022/11/02/05/53/cycling-7564103_1280.jpg');
+}
+
+.box4 {
+    grid-column: 1 / 3;
+    grid-row: 3;
+    background-image: url('https://cdn.pixabay.com/photo/2013/02/21/19/06/drink-84533_1280.jpg');
+}
+
+.box5 {
+    grid-column: 3;
+    grid-row: 3 / 5;
+    background-image: url('https://cdn.pixabay.com/photo/2014/05/27/15/22/deckchairs-355596_1280.jpg');
+}
+
+.box6 {
+    grid-column: 1 / 3;
+    grid-row: 4;
+    background-image: url('https://cdn.pixabay.com/photo/2016/11/21/15/46/computer-1846056_1280.jpg');
+}
+
+.box7 {
+    grid-column: 1 / 4;
+    grid-row: 5;
+    background-image: url('https://cdn.pixabay.com/photo/2016/11/29/04/16/beach-1867271_1280.jpg');
+}
+
+/* ===================================================== */
+/* =================== 6. RESPONSIVE ==================== */
+/* ===================================================== */
+
+/* TABLET */
+@media (max-width: 1024px) {
+
+    .info {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .info-text {
+        margin: 0 auto;
+    }
+
+    .ventajas-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+
+    .box {
+        grid-column: auto !important;
+        grid-row: auto !important;
+        height: 200px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .hero h1 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .scroll-down span {
+        width: 20px;
+        height: 20px;
+        border-width: 2px;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    .popup {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .popup::after {
+        left: 50%;
+        transform: translateX(-50%) rotate(-45deg);
+    }
+
+    .ventajas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .box {
+        height: 220px;
+    }
+
+    .linea-titulo {
+        width: 80%;
+    }
+}

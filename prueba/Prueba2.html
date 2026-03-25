@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Landing Hotel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles3.css">
+</head>
+
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Lorem Ipsum</h1>
+        <a href="#info" class="scroll-down">
+            <span></span>
+            <span></span>
+        </a>
+    </section>
+
+    <!-- INFO -->
+    <section class="info" id="info">
+        <div class="info-img"></div>
+
+        <div class="info-text">
+            <span>WHY DO WE USE IT</span>
+            <br><br>
+            <h2>What is Lorem Ipsum</h2>
+            <p id="infoParagraph">
+                Lorem Ipsum is simply dummy text of the printing
+                and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s,
+                when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book.
+                <br><br>
+                It was popularised in the 1960s with the release of
+                Letraset sheets containing Lorem Ipsum passages, and
+                more recently with desktop publishing software like
+                Aldus PageMaker including versions of Lorem Ipsum.
+            </p>
+
+            <!-- Popup -->
+        <div class="btn-wrapper">
+            <button id="openPopup">MÁS INFORMACIÓN ></button>
+        
+            <div id="infoPopup" class="popup">
+                <p id="dialogText"></p>
+                <span id="closePopup">&times;</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- VENTAJAS -->
+    <section class="ventajas">
+        <div class="container">
+            <h3>Disfrute de las ventajas de reservar en la web</h3>
+            <div class="linea-titulo"></div>
+            <div class="ventajas-grid">
+                <div class="ventaja">
+                    <span class="icono icono-parking"></span>
+                    <p>Aparcamiento gratuito</p>
+                </div>
+                <div class="ventaja">
+                    <span class="icono icono-piscina"></span>
+                    <p>Piscina</p>
+                </div>
+                <div class="ventaja">
+                    <span class="icono icono-bicicleta"></span>
+                    <p>Alquiler de bicicletas</p>
+                </div>
+                <div class="ventaja">
+                    <span class="icono icono-wifi"></span>
+                    <p>Wifi en todo el establecimiento prepago</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery container">
+        <div class="grid">
+            <div class="box box1">Adults Only</div>
+            <div class="box box2">Spa & Wellness</div>
+            <div class="box box3">Cycling tourism</div>
+            <div class="box box4">All Inclusive</div>
+            <div class="box box5">Beachfront</div>
+            <div class="box box6">MICE</div>
+            <div class="box box7">Families</div>
+        </div>
+    </section>
+
+    <!-- JS -->
+    <script>
+        const openPopup = document.getElementById('openPopup');
+        const infoPopup = document.getElementById('infoPopup');
+        const closePopup = document.getElementById('closePopup');
+        const infoParagraph = document.getElementById('infoParagraph');
+        const dialogText = document.getElementById('dialogText');
+
+        function getSecondHalf(text) {
+            const words = text.split(' ');
+            const half = Math.floor(words.length / 2);
+            return words.slice(half).join(' ');
+        }
+
+        // VALIDACIÓN AQUÍ
+            if (infoParagraph && infoParagraph.textContent.trim() !== '') {
+                dialogText.textContent = getSecondHalf(infoParagraph.textContent);
+        }
+
+        // Abrir popup
+        openPopup.addEventListener('click', () => {
+            infoPopup.style.display = 'block';
+        });
+
+        // Cerrar popup con X
+        closePopup.addEventListener('click', () => {
+            infoPopup.style.display = 'none';
+        });
+
+        // Cerrar popup al clicar fuera
+        document.addEventListener('click', (e) => {
+            if (!infoPopup.contains(e.target) && e.target !== openPopup) {
+                infoPopup.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>
